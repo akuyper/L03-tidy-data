@@ -2,20 +2,25 @@
 title: "L03 Tidy Data"
 subtitle: "Data Science 1 with R (STAT 301-1)"
 author: "YOUR NAME"
+pagetitle: "L03 YOUR NAME"
+date: today
 
 format:
   html:
     toc: true
+    toc-depth: 4
+    toc-location: left
     embed-resources: true
-    code-fold: show
+    code-fold: false
     link-external-newwindow: true
 
 execute:
   warning: false
-  
-from: markdown+emoji 
----
 
+from: markdown+emoji
+reference-location: margin
+citation-location: margin 
+---
 
 ::: {.callout-tip icon=false}
 
@@ -50,16 +55,15 @@ You should always begin by loading all necessary packages towards the beginning 
 
 ## Datasets 
 
-All datasets for the Exercises are either defined inline, provided within the core `tidyverse` packages (`table1`, `table2`, `table4a`, `table4b`), or provided in the `fivethirtyeight` package (`drinks`).
+All datasets for the Exercises are either defined inline, provided within the core `tidyverse` packages (`table1`, `table2`, `table4a`, `table4b`), or provided in the `fivethirtyeight` package (`drinks`). 
 
-The Case Study dataset is stored in the `data` folder and called `users_top7_2020.csv`.
+The Case Study dataset is stored in the `data` folder and called `users_top7_2020.csv`. The code to read in the case study data is provided below. We will learn more about reading in data in Chapter 7.
 
 ```{r}
 #| label: load-data
-#| code-fold: false
 
 # Load dataset(s)
-
+users_top7_2020 <- read_csv("data/users_top7_2020.csv")
 ```
 
 ## Exercises
@@ -153,11 +157,23 @@ YOUR SOLUTION HERE
 
 ## Case Study
 
-Tinder is interested in knowing more about their most active users and have have tasked you with exploring their 7 most active users during 2020. The dataset containing the top 7 active users during 2020 is stored in the `data` folder and called `users_top7_2020.csv`.^[This dataset was sourced from [Swipestats.io](https://www.swipestats.io/).]
+::: {.callout-note collapse=true}
 
-The column names contain prefixes "matches", "likes", and "passes" followed by a number; the suffix number represents the month; and the cell represents either the total number of matches (matches), total number of times the user swiped right (likes), or total number of times the user swiped left (passes) during that month (ie: `matches_1` = total number of matches during January 2020).
+The case study portion for labs is different than the exercises portion. The core learning objective for the case study portion is to see if you can bring tools together and produce work meant for more general consumption. That is, can you bring everything together and answer a question clearly and concisely with supporting evidence.
 
-Use an appropriate graph to visualize the matches, likes, and passes over time for each user. What insights and conclusions can you gain from this graph, if any.
+:::
+
+Tinder is interested in knowing more about their most active users and have tasked you with exploring their 7 most active users during 2020. The dataset containing the top 7 active users during 2020 is stored in the `data` folder and called `users_top7_2020.csv`.^[This dataset was sourced from [Swipestats.io](https://www.swipestats.io/).] Code to read in the data was provided above.
+
+The column names contain prefixes `"matches_"`, `"likes_"`, and `"passes_"` followed by a number; the suffix number represents the month; and the cell represents either the total number of matches (matches), total number of times the user swiped right (likes), or total number of times the user swiped left (passes) during that month (ie: `matches_1` = total number of matches during January 2020).
+
+Use an appropriate graph to visualize the matches, likes, and passes over time for each user. What insights and conclusions can you gain from this graph, if any? Your boss is also taking this opportunity to perform a performance review. Meaning, your boss will also be having your code reviewed for quality. They have instructed you to include the code, but have it folded/hidden from view. This way it won't distract from the final product, but will be accessible for the code reviewers evaluation. 
+
+::: {.callout-warning}
+
+Remember, the final product is meant for your boss and they expect your work to be clear, to the point, and presentable! While they generally don't care about code and wouldn't want it included, they have instructed you to include this time because they are conducting a performance review which includes someone reviewing the quality of your code. Even though you are including the code, they want it folded/hidden from view so not to distract from the final product (use `code-fold: true` in the code block/chunk YAML).
+
+:::
 
 ::: {.callout-tip icon="false"}
 ## Solution
@@ -165,8 +181,6 @@ Use an appropriate graph to visualize the matches, likes, and passes over time f
 YOUR SOLUTION HERE
 
 :::
-
-
 
 ## Graduate Challenge
 
